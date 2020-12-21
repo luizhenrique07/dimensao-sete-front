@@ -1,12 +1,9 @@
 {
-  "name": "gatsby-starter-blog",
+  "name": "dimensao-sete-front",
   "private": true,
-  "description": "A starter for a blog powered by Gatsby and Markdown",
+  "description": "Um portal com conteúdo de outra dimensão",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
-  },
+  "author": "Luiz Henrique Domingues Soares",
   "dependencies": {
     "gatsby": "^2.26.1",
     "gatsby-image": "^2.5.0",
