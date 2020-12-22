@@ -1,17 +1,21 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `Dimensão 7`,
     author: {
-      name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`,
+      name: `Luiz Henrique Domingues Soares`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
+    description: `O portal com conteúdo nerd sobre HQs, games, series, filmes e muito mais!`,
     siteUrl: `https://gatsby-starter-blog-demo.netlify.app/`,
-    social: {
-      twitter: `kylemathews`,
-    },
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-material-ui`,
+      options: {
+        stylesProvider: {
+          injectFirst: true,
+        },
+      },
+    },
     `gatsby-plugin-netlify-cms`,
     `gatsby-plugin-sass`,
     {
