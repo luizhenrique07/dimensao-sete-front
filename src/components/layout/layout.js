@@ -1,6 +1,21 @@
 import React from "react"
 import Container from "@material-ui/core/Container"
 import Header from "../header/header"
+import { ThemeProvider } from "@material-ui/core/styles"
+import { createMuiTheme } from "@material-ui/core/styles"
+
+import "./layout.module.scss"
+
+const theme = createMuiTheme({
+  palette: {
+    secondary: {
+      main: "#fbbf17",
+    },
+    primary: {
+      main: "#212121",
+    },
+  },
+})
 
 const Layout = ({ children }) => {
   const sections = [
@@ -17,12 +32,12 @@ const Layout = ({ children }) => {
   ]
 
   return (
-    <>
-      <Container maxWidth="lg">
-        <Header title="Blog" sections={sections} />
+    <ThemeProvider theme={theme}>
+      <Header title="Blog" sections={sections} />
+      <Container maxWidth="md">
         <main>{children}</main>
       </Container>
-    </>
+    </ThemeProvider>
   )
 }
 

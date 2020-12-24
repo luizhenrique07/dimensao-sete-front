@@ -2,44 +2,28 @@ import React from "react"
 import PropTypes from "prop-types"
 import Toolbar from "@material-ui/core/Toolbar"
 import Button from "@material-ui/core/Button"
+import AppBar from "@material-ui/core/AppBar"
+import Container from "@material-ui/core/Container"
 import Typography from "@material-ui/core/Typography"
 import Link from "@material-ui/core/Link"
-import "./header.scoped.scss"
+import "./header.module.scss"
 
 export default function Header(props) {
   const { sections, title } = props
 
   return (
-    <>
-      <Toolbar>
-        <Button size="small">Subscribe</Button>
-        <Typography
-          component="h2"
-          variant="h5"
-          color="inherit"
-          align="center"
-          noWrap
-        >
-          {title}
-        </Typography>
-        <Button variant="outlined" size="small">
-          Sign up
-        </Button>
-      </Toolbar>
-      <Toolbar component="nav" variant="dense">
-        {sections.map(section => (
-          <Link
-            color="inherit"
-            noWrap
-            key={section.title}
-            variant="body2"
-            href={section.url}
-          >
-            {section.title}
-          </Link>
-        ))}
-      </Toolbar>
-    </>
+    <div className="header">
+      <AppBar position="static">
+        <Container maxWidth="md">
+          <Toolbar>
+            <Typography variant="h6" className="title">
+              Dimensão Sete
+            </Typography>
+            <Button color="inherit">Login</Button>
+          </Toolbar>
+        </Container>
+      </AppBar>
+    </div>
   )
 }
 
