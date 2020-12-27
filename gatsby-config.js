@@ -1,13 +1,15 @@
+/**
+ * Configure your Gatsby site with this file.
+ *
+ * See: https://www.gatsbyjs.com/docs/gatsby-config/
+ */
+
 module.exports = {
-  siteMetadata: {
-    title: `Dimensão 7`,
-    author: {
-      name: `Luiz Henrique Domingues Soares`,
-    },
-    description: `O portal com conteúdo nerd sobre HQs, games, series, filmes e muito mais!`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.app/`,
-  },
+  /* Your site config here */
   plugins: [
+    {
+      resolve: `gatsby-plugin-styled-components`,
+    },
     {
       resolve: `gatsby-plugin-material-ui`,
       options: {
@@ -17,7 +19,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-netlify-cms`,
-    `gatsby-plugin-sass`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {

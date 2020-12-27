@@ -1,7 +1,5 @@
 // custom typefaces
-
-// normalize SCSS across browsers
-import "./src/normalize.scss"
+import "typeface-nunito"
 
 // Highlighting for code blocks
 import "prismjs/themes/prism.css"
