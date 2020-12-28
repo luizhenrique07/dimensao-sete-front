@@ -1,21 +1,21 @@
 import React from "react"
-import Container from "@material-ui/core/Container"
+
 import Header from "../header/header"
 import { ThemeProvider } from "@material-ui/core/styles"
 import { Normalize } from "./normalize.style"
-import { StylesProvider } from "@material-ui/styles"
 import theme from "../../shared/theme/theme"
 import { ThemeProvider as SCThemeProvider } from "styled-components"
+import * as S from "./layout.style"
 
-const Layout = ({ children }) => {
+const Layout = ({ children, location }) => {
   return (
     <ThemeProvider theme={theme}>
       <SCThemeProvider theme={theme}>
-        <Header title="Blog" />
+        <Header title="Blog" location={location} />
         <Normalize />
-        <Container maxWidth="md">
-          <main>{children}</main>
-        </Container>
+        <S.StyledContainer maxWidth="md">
+          <S.Main>{children}</S.Main>
+        </S.StyledContainer>
       </SCThemeProvider>
     </ThemeProvider>
   )

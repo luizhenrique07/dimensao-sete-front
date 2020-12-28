@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import PropTypes from "prop-types"
-import Toolbar from "@material-ui/core/Toolbar"
-import Tab from "@material-ui/core/Tab"
 import Tabs from "@material-ui/core/Tabs"
 import AppBar from "@material-ui/core/AppBar"
 import Container from "@material-ui/core/Container"
@@ -9,18 +7,20 @@ import SwipeableDrawer from "@material-ui/core/SwipeableDrawer"
 import List from "@material-ui/core/List"
 import HeaderIcon from "./components/header-icon/header-icon"
 import * as S from "./header.style"
-import Grid from "@material-ui/core/Grid"
-import MenuIcon from "@material-ui/icons/Menu"
+
 import ListItem from "@material-ui/core/ListItem"
 import ListItemText from "@material-ui/core/ListItemText"
+import Toolbar from "@material-ui/core/Toolbar"
+import IconButton from "@material-ui/core/IconButton"
+import { navigate } from "gatsby"
 
-export default function Header() {
+export default function Header({ location }) {
   const [menuDrawer, setMenuDrawer] = useState(false)
   const [value, setValue] = useState(0)
 
   const sections = [
-    { label: "Página Inicial", path: "/home" },
-    { label: "Noticias", path: "/noticias" },
+    { label: "Página Inicial", path: "/" },
+    { label: "Notícias", path: "/noticias" },
     { label: "Reviews", path: "/reviews" },
     { label: "Listas", path: "/listas" },
   ]
@@ -33,21 +33,26 @@ export default function Header() {
     setMenuDrawer(false)
   }
 
+  function navigateAndCloseDrawer(path) {
+    navigate(path)
+    mobileMenuClose()
+  }
+
   return (
     <S.StyledAppBar>
-      <S.StyledToolbar>
+      <Toolbar>
         <Container maxWidth="md">
           <S.FlexGrid item xs={12}>
             <HeaderIcon />
 
             <S.IconContainer>
-              <S.StyledIconButton
+              <IconButton
                 onClick={mobileMenuOpen}
                 color="inherit"
                 aria-label="Menu"
               >
-                <MenuIcon />
-              </S.StyledIconButton>
+                <S.StyledMenuIcon />
+              </IconButton>
             </S.IconContainer>
             <S.TabContainer>
               <SwipeableDrawer
@@ -61,9 +66,10 @@ export default function Header() {
                   {sections.map(item => (
                     <ListItem
                       key={item.label}
-                      href={item.path}
                       label={item.label}
+                      href={item.path}
                       button
+                      onClick={() => navigateAndCloseDrawer(item.path)}
                     >
                       <ListItemText primary={item.label} />
                     </ListItem>
@@ -71,18 +77,24 @@ export default function Header() {
                 </List>
               </SwipeableDrawer>
               <Tabs
-                indicatorColor="primary"
-                textColor="primary"
+                indicatorColor="secondary"
+                textColor="secondary"
                 onChange={setValue}
+                value={location.pathname}
               >
-                {sections.map((item, index) => (
-                  <S.TabItem key={item.label} label={item.label} />
+                {sections.map(item => (
+                  <S.TabItem
+                    key={item.label}
+                    label={item.label}
+                    value={item.path}
+                    onClick={() => navigateAndCloseDrawer(item.path)}
+                  />
                 ))}
               </Tabs>
             </S.TabContainer>
           </S.FlexGrid>
         </Container>
-      </S.StyledToolbar>
+      </Toolbar>
     </S.StyledAppBar>
   )
 }
