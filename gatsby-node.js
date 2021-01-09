@@ -76,7 +76,7 @@ exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions
 
   // Explicitly define the siteMetadata {} object
-  // This way those will always be defined even if removed from gatsby-config.js
+  // Thi wasy those will always be defined even if removed from gatsby-config.js
 
   // Also explicitly define the Markdown frontmatter
   // This way the "MarkdownRemark" queries will return `null` even when no
@@ -106,6 +106,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       title: String
       description: String
       date: Date @dateformat
+      featuredImage: File @link(by: "relativePath")
     }
 
     type Fields {
