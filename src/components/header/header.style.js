@@ -4,12 +4,16 @@ import theme from "../../shared/theme/theme"
 import MenuIcon from "@material-ui/icons/Menu"
 import AppBar from "@material-ui/core/AppBar"
 import Tab from "@material-ui/core/Tab"
+import Container from "@material-ui/core/Container"
 
 export const StyledLink = styled(Link)`
   color: ${theme.palette.primary.contrastText};
 `
 export const StyledAppBar = styled(AppBar)`
   box-shadow: none;
+`
+export const StyledContainer = styled(Container)`
+  padding: 0;
 `
 
 export const FlexGrid = styled.div`

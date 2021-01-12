@@ -20,7 +20,7 @@ export const Dot = styled.div`
   font-size: 80px;
   height: 10px;
   color: #37bdf5;
-  margin-top: -53%;
+  margin-top: -54%;
   margin-left: -2px;
 `
 
