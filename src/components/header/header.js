@@ -38,6 +38,13 @@ export default function Header({ location }) {
     mobileMenuClose()
   }
 
+  function getCurrentPath() {
+    let path = sections.find(x => x.path == location.pathname)
+
+    if (path) return location.pathname
+    else return false
+  }
+
   return (
     <S.StyledAppBar>
       <Toolbar>
@@ -80,7 +87,7 @@ export default function Header({ location }) {
                 indicatorColor="secondary"
                 textColor="secondary"
                 onChange={setValue}
-                value={location.pathname}
+                value={getCurrentPath()}
               >
                 {sections.map(item => (
                   <S.TabItem
