@@ -1,5 +1,8 @@
 const path = require(`path`)
-const { createFilePath } = require(`gatsby-source-filesystem`)
+const {
+  createFilePath,
+  createRemoteFileNode,
+} = require(`gatsby-source-filesystem`)
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
@@ -17,7 +20,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         ) {
           nodes {
             id
-            fields {
+            frontmatter {
               slug
             }
           }
@@ -44,9 +47,10 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     posts.forEach((post, index) => {
       const previousPostId = index === 0 ? null : posts[index - 1].id
       const nextPostId = index === posts.length - 1 ? null : posts[index + 1].id
+      console.log("--- CReATING PAGE", post.frontmatter)
 
       createPage({
-        path: post.fields.slug,
+        path: post.frontmatter.slug,
         component: blogPost,
         context: {
           id: post.id,
@@ -54,20 +58,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           nextPostId,
         },
       })
-    })
-  }
-}
-
-exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions
-
-  if (node.internal.type === `MarkdownRemark`) {
-    const value = createFilePath({ node, getNode })
-
-    createNodeField({
-      name: `slug`,
-      node,
-      value,
     })
   }
 }
@@ -99,18 +89,51 @@ exports.createSchemaCustomization = ({ actions }) => {
 
     type MarkdownRemark implements Node {
       frontmatter: Frontmatter
-      fields: Fields
+      featuredImage: File @link(from: "featuredImage___NODE")
     }
 
     type Frontmatter {
+      slug: String
       title: String
       description: String
       date: Date @dateformat
-      featuredImage: File @link(by: "relativePath")
-    }
-
-    type Fields {
-      slug: String
+      featuredImageUrl: String
+      featuredImageAlt: String
     }
   `)
+}
+
+exports.onCreateNode = async ({
+  node,
+  actions,
+  getNode,
+  createNodeId,
+  store,
+  cache,
+}) => {
+  const { createNodeField, createNode } = actions
+
+  if (node.internal.type === `MarkdownRemark`) {
+    if (node.frontmatter.featuredImageUrl !== null) {
+      let fileNode = await createRemoteFileNode({
+        url: node.frontmatter.featuredImageUrl, // string that points to the URL of the image
+        parentNodeId: node.id, // id of the parent node of the fileNode you are going to create
+        createNode, // helper function in gatsby-node to generate the node
+        createNodeId, // helper function in gatsby-node to generate the node id
+        cache, // Gatsby's cache
+        store, // Gatsby's Redux store
+      })
+      // if the file was created, attach the new node to the parent node
+      if (fileNode) {
+        node.featuredImage___NODE = fileNode.id
+      }
+    }
+
+    const value = createFilePath({ node, getNode })
+    createNodeField({
+      name: `slug`,
+      node,
+      value,
+    })
+  }
 }

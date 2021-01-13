@@ -13,7 +13,7 @@ const Layout = ({ children, location }) => {
       <SCThemeProvider theme={theme}>
         <Header title="Blog" location={location} />
         <Normalize />
-        <S.StyledContainer maxWidth="md">
+        <S.StyledContainer maxWidth="lg">
           <S.Main>{children}</S.Main>
         </S.StyledContainer>
       </SCThemeProvider>

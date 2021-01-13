@@ -48,7 +48,7 @@ export default function Header({ location }) {
   return (
     <S.StyledAppBar>
       <Toolbar>
-        <Container maxWidth="md">
+        <Container maxWidth="lg">
           <S.FlexGrid item xs={12}>
             <HeaderIcon />
 
