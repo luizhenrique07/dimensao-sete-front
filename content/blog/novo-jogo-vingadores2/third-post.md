@@ -1,5 +1,5 @@
 ---
-slug: "/blog/novo-jogo-vingadores2"
+slug: "/blog/novo-jogo-vingadores-dois"
 date: "2017-11-07"
 title: "Novo jogo vingadores 2"
 featuredImage: "./vingadores.jpg"

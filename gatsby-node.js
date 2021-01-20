@@ -48,7 +48,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       const previousPostId = index === 0 ? null : posts[index - 1].id
       const nextPostId = index === posts.length - 1 ? null : posts[index + 1].id
       console.log("--- CReATING PAGE", post.frontmatter)
-
+      console.log(post.frontmatter)
       createPage({
         path: post.frontmatter.slug,
         component: blogPost,
@@ -114,7 +114,7 @@ exports.onCreateNode = async ({
   const { createNodeField, createNode } = actions
 
   if (node.internal.type === `MarkdownRemark`) {
-    if (node.frontmatter.featuredImageUrl !== null) {
+    if (node.frontmatter.featuredImageUrl) {
       let fileNode = await createRemoteFileNode({
         url: node.frontmatter.featuredImageUrl, // string that points to the URL of the image
         parentNodeId: node.id, // id of the parent node of the fileNode you are going to create
