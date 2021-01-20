@@ -39,7 +39,7 @@ export default function Header({ location }) {
   }
 
   function getCurrentPath() {
-    let path = sections.find(x => x.path == location.pathname)
+    let path = sections.find(x => x.path === location.pathname)
 
     if (path) return location.pathname
     else return false
@@ -52,6 +52,7 @@ export default function Header({ location }) {
           <S.FlexGrid item xs={12}>
             <HeaderIcon />
 
+            <S.H1>Dimensão Sete</S.H1>
             <S.IconContainer>
               <IconButton
                 onClick={mobileMenuOpen}

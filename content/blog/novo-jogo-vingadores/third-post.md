@@ -2,9 +2,9 @@
 slug: "/blog/novo-jogo-vingadores"
 date: "2017-11-07"
 title: "Novo jogo vingadores"
-featuredImage: "./vingadores.webp"
+featuredImage: "./vingadores.jpg"
 featuredImageAlt: Vingadores
-description: "teste"
+description: "Novo jogo dos vingadores é lançado"
 ---
 
 # Novo jogo dos vingadores é lançado

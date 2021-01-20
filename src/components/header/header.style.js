@@ -56,3 +56,6 @@ export const TabItem = styled(Tab)`
   font-weight: bold;
   font-family: "Nunito", sans-serif;
 `
+export const H1 = styled.h1`
+  display: none;
+`

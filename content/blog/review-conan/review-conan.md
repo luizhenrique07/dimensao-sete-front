@@ -4,7 +4,7 @@ date: "2020-11-08"
 title: "Review Conan o Barbaro"
 featuredImage: "./conan.jpg"
 featuredImageAlt: "Conan Review"
-description: "teste"
+description: "PANINI | NOVA EDIÇÃO ESPECIAL DE CONAN – O BÁRBARO É ANUNCIADA"
 ---
 
 # PANINI | NOVA EDIÇÃO ESPECIAL DE CONAN – O BÁRBARO É ANUNCIADA
