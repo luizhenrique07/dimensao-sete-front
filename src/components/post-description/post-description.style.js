@@ -4,6 +4,8 @@ import { Link } from "gatsby"
 import { colors } from "../../shared/theme/theme"
 
 export const Article = styled.article`
+  border-bottom: 1px solid #efefef;
+  padding-bottom: 10px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   ${props => props.theme.breakpoints.up("md")} {

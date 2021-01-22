@@ -1,6 +1,6 @@
 import { Link } from "gatsby"
 import styled from "styled-components"
-import theme from "../../../../shared/theme/theme"
+import theme from "../../shared/theme/theme"
 
 export const Image = styled.img`
   height: 40px;
@@ -10,10 +10,13 @@ export const Title = styled.div`
   font-weight: 700;
   font-family: "Righteous", sans-serif;
   padding: 0;
+  color: #fff;
+`
+
+export const Dimension = styled(Title)`
   color: ${theme.palette.secondary.main};
 `
 
-export const Dimension = styled(Title)``
 export const Seven = styled(Title)``
 
 export const Dot = styled.div`
@@ -22,6 +25,10 @@ export const Dot = styled.div`
   color: #37bdf5;
   margin-top: -54%;
   margin-left: -2px;
+`
+
+export const WhiteDot = styled(Dot)`
+  color: #fff;
 `
 
 export const Icon = styled(Link)`

@@ -5,7 +5,7 @@ import AppBar from "@material-ui/core/AppBar"
 import Container from "@material-ui/core/Container"
 import SwipeableDrawer from "@material-ui/core/SwipeableDrawer"
 import List from "@material-ui/core/List"
-import HeaderIcon from "./components/header-icon/header-icon"
+import SiteLogo from "../header-icon/header-icon"
 import * as S from "./header.style"
 
 import ListItem from "@material-ui/core/ListItem"
@@ -49,7 +49,7 @@ export default function Header({ location }) {
       <Toolbar>
         <Container maxWidth="lg">
           <S.FlexGrid item xs={12}>
-            <HeaderIcon />
+            <SiteLogo />
 
             <S.H1>Dimensão Sete</S.H1>
             <S.IconContainer>

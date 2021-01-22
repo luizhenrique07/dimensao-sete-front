@@ -6,6 +6,7 @@ import { Normalize } from "./normalize.style"
 import theme from "../../shared/theme/theme"
 import { ThemeProvider as SCThemeProvider } from "styled-components"
 import * as S from "./layout.style"
+import Footer from "../footer/footer"
 
 const Layout = ({ children, location }) => {
   return (
@@ -16,6 +17,7 @@ const Layout = ({ children, location }) => {
         <S.StyledContainer maxWidth="lg">
           <S.Main>{children}</S.Main>
         </S.StyledContainer>
+        <Footer></Footer>
       </SCThemeProvider>
     </ThemeProvider>
   )

@@ -8,7 +8,7 @@ export const StyledContainer = styled(Container)`
   }
   padding-left: 0px;
   padding-right: 0px;
-  box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.25);
+  /* box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.25);   */
   background-color: #ffffff;
 `
 

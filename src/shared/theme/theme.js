@@ -11,6 +11,15 @@ const theme = createMuiTheme({
       // main: "#fbbf17",
     },
   },
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 712,
+      md: 960,
+      lg: 1280,
+      xl: 1920,
+    },
+  },
 })
 
 export const colors = {
