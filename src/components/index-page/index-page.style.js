@@ -19,7 +19,20 @@ export const FeaturedTitle = styled.h2`
     line-height: 1.3;
     margin-top: 0;
     text-transform: uppercase;
+    text-decoration: underline;
+    text-decoration-color: ${props => props.theme.palette.secondary.main};
   }
+`
+
+export const Title = styled.h2`
+  font-family: Nunito;
+  font-weight: 800;
+  margin-bottom: 10px;
+  color: ${colors.black};
+  line-height: 1.3;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-decoration-color: ${props => props.theme.palette.secondary.main};
 `
 
 export const HomePrimary = styled.section`
@@ -32,6 +45,29 @@ export const HomeSecondary = styled.section`
 
   ${props => props.theme.breakpoints.up("sm")} {
     padding-top: 1rem;
+  }
+`
+export const HomeLatest = styled.section`
+  grid-row: 3;
+  grid-column: 1 / span 12;
+
+  display: grid;
+  grid-template-columns: 1fr;
+
+  ${props => props.theme.breakpoints.up("md")} {
+    grid-template-columns: 3fr 1fr;
+  }
+
+  ${props => props.theme.breakpoints.up("sm")} {
+    padding-top: 1rem;
+  }
+`
+
+export const LatestPosts = styled.div``
+export const TrendingPosts = styled.div`
+  display: none;
+  ${props => props.theme.breakpoints.up("md")} {
+    display: block;
   }
 `
 

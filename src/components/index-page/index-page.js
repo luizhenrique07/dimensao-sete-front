@@ -1,6 +1,7 @@
 import React from "react"
 import * as S from "./index-page.style"
 import FeaturedPostCard from "./featured-post-card/featured-post-card"
+import PostDescription from "../post-description/post-description"
 
 const IndexPage = props => {
   const { posts } = props
@@ -18,7 +19,7 @@ const IndexPage = props => {
       )}
       <S.HomeSecondary>
         <S.HomeSecondaryGrid>
-          {posts.slice(1).map(post => {
+          {posts.slice(1, 4).map(post => {
             return (
               <FeaturedPostCard
                 key={post.frontmatter.slug}
@@ -28,6 +29,22 @@ const IndexPage = props => {
           })}
         </S.HomeSecondaryGrid>
       </S.HomeSecondary>
+
+      <S.HomeLatest>
+        <S.LatestPosts>
+          <S.Title>Novidades</S.Title>
+
+          {posts.slice(4).map(post => {
+            return (
+              <PostDescription
+                key={post.frontmatter.slug}
+                post={post}
+              ></PostDescription>
+            )
+          })}
+        </S.LatestPosts>
+        <S.TrendingPosts></S.TrendingPosts>
+      </S.HomeLatest>
     </S.Home>
   )
 }

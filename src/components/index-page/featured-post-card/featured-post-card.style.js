@@ -4,7 +4,6 @@ import { Link } from "gatsby"
 import { colors } from "../../../shared/theme/theme"
 
 export const Article = styled.article`
-  /* height: 100%; */
   display: flex;
   flex-direction: column;
   background-color: black;

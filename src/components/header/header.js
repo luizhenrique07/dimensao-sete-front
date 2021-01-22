@@ -16,7 +16,6 @@ import { navigate } from "gatsby"
 
 export default function Header({ location }) {
   const [menuDrawer, setMenuDrawer] = useState(false)
-  const [value, setValue] = useState(0)
 
   const sections = [
     { label: "Página Inicial", path: "/" },
@@ -87,7 +86,6 @@ export default function Header({ location }) {
               <Tabs
                 indicatorColor="secondary"
                 textColor="secondary"
-                onChange={setValue}
                 value={getCurrentPath()}
               >
                 {sections.map(item => (
