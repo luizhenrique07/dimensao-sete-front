@@ -14,7 +14,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const result = await graphql(
     `
       {
-        allMarkdownRemark(
+        allMdx(
           sort: { fields: [frontmatter___date], order: ASC }
           limit: 1000
         ) {
@@ -37,7 +37,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     return
   }
 
-  const posts = result.data.allMarkdownRemark.nodes
+  const posts = result.data.allMdx.nodes
 
   // Create blog posts pages
   // But only if there's at least one markdown file found at "content/blog" (defined in gatsby-config.js)
@@ -69,7 +69,7 @@ exports.createSchemaCustomization = ({ actions }) => {
   // Thi wasy those will always be defined even if removed from gatsby-config.js
 
   // Also explicitly define the Markdown frontmatter
-  // This way the "MarkdownRemark" queries will return `null` even when no
+  // This way the "Mdx" queries will return `null` even when no
   // blog posts are stored inside "content/blog" instead of returning an error
   createTypes(`
     type SiteSiteMetadata {
@@ -87,7 +87,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       twitter: String
     }
 
-    type MarkdownRemark implements Node {
+    type Mdx implements Node {
       frontmatter: Frontmatter
       featuredImage: File @link(from: "featuredImage___NODE")
     }
@@ -114,7 +114,7 @@ exports.onCreateNode = async ({
 }) => {
   const { createNodeField, createNode } = actions
 
-  if (node.internal.type === `MarkdownRemark`) {
+  if (node.internal.type === `Mdx`) {
     if (node.frontmatter.featuredImageUrl) {
       let fileNode = await createRemoteFileNode({
         url: node.frontmatter.featuredImageUrl, // string that points to the URL of the image

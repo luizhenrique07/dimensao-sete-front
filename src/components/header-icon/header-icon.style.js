@@ -19,12 +19,11 @@ export const Dimension = styled(Title)`
 
 export const Seven = styled(Title)``
 
-export const Dot = styled.div`
-  font-size: 80px;
-  height: 10px;
+export const Dot = styled(Title)`
+  font-size: 45px;
   color: #37bdf5;
-  margin-top: -54%;
-  margin-left: -2px;
+  margin-top: -7%;
+  margin-left: 1px;
 `
 
 export const WhiteDot = styled(Dot)`

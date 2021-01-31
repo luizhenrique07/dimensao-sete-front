@@ -5,7 +5,7 @@ import SEO from "../components/seo/seo"
 import IndexPage from "../components/index-page/index-page"
 
 const Index = ({ data, location }) => {
-  const posts = data.allMarkdownRemark.nodes
+  const posts = data.allMdx.nodes
 
   return (
     <Layout location={location}>
@@ -24,7 +24,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
       nodes {
         excerpt
         frontmatter {

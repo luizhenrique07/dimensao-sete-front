@@ -1,12 +1,14 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import Layout from "../components/layout/layout"
 import SEO from "../components/seo/seo"
 import * as S from "./blog-post.style"
+import { MDXRenderer } from "gatsby-plugin-mdx"
 import { MDXProvider } from "@mdx-js/react"
+import MDXComponents from "../components/mdx-components/mdx-components"
 
 const BlogPostTemplate = ({ data, location }) => {
-  const post = data.markdownRemark
+  const post = data.mdx
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const { previous, next } = data
 
@@ -17,24 +19,17 @@ const BlogPostTemplate = ({ data, location }) => {
         description={post.frontmatter.description || post.excerpt}
       />
       <article itemScope itemType="http://schema.org/Article">
-        <header>
-          <h1 itemProp="headline">{post.frontmatter.title}</h1>
-          <p>{post.frontmatter.date}</p>
-        </header>
-        <MDXProvider
-          components={{
-            // Map HTML element tag to React component
-            h1: S.Title,
-          }}
-        >
-          <section
-            dangerouslySetInnerHTML={{ __html: post.html }}
-            itemProp="articleBody"
-          />
+        <MDXProvider components={MDXComponents}>
+          <MDXRenderer
+            frontmatter={post.frontmatter}
+            date={post.frontmatter.date}
+          >
+            {post.body}
+          </MDXRenderer>
         </MDXProvider>
-        <hr />
+        {/* <hr /> */}
       </article>
-      <nav>
+      {/* <nav>
         <ul
           style={{
             display: `flex`,
@@ -59,7 +54,7 @@ const BlogPostTemplate = ({ data, location }) => {
             )}
           </li>
         </ul>
-      </nav>
+      </nav> */}
     </Layout>
   )
 }
@@ -77,23 +72,23 @@ export const pageQuery = graphql`
         title
       }
     }
-    markdownRemark(id: { eq: $id }) {
+    mdx(id: { eq: $id }) {
       id
       excerpt(pruneLength: 160)
-      html
+      body
       frontmatter {
         title
         date(formatString: "DD [de] MMMM, YYYY", locale: "pt-br")
         description
       }
     }
-    previous: markdownRemark(id: { eq: $previousPostId }) {
+    previous: mdx(id: { eq: $previousPostId }) {
       frontmatter {
         slug
         title
       }
     }
-    next: markdownRemark(id: { eq: $nextPostId }) {
+    next: mdx(id: { eq: $nextPostId }) {
       frontmatter {
         slug
         title

@@ -346,7 +346,7 @@ summary {
 }
 
 body {
-  font-family: Roboto;
+  font-family: Roboto, sans-serif;
 }
 
 `

@@ -7,13 +7,5 @@ export const Article = styled.article`
     padding: 0;
   }
 `
-export const Title = styled.h1`
-  font-size: 3em;
-  text-align: center;
-  color: yellowgreen !important;
-`
 
-export const Paragraph = styled.p`
-  font-size: 1em;
-  color: #222;
-`
+export const Title = styled
