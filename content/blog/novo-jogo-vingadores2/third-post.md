@@ -5,6 +5,7 @@ title: "Novo jogo vingadores 2"
 featuredImage: "./vingadores.jpg"
 featuredImageAlt: Vingadores
 description: "Novo jogo dos vingadores é lançado"
+category: "list"
 ---
 
 # Novo jogo dos vingadores é lançado

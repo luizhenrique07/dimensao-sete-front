@@ -1,8 +1,9 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-
 import Layout from "../components/layout/layout"
 import SEO from "../components/seo/seo"
+import * as S from "./blog-post.style"
+import { MDXProvider } from "@mdx-js/react"
 
 const BlogPostTemplate = ({ data, location }) => {
   const post = data.markdownRemark
@@ -20,12 +21,18 @@ const BlogPostTemplate = ({ data, location }) => {
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
           <p>{post.frontmatter.date}</p>
         </header>
-        <section
-          dangerouslySetInnerHTML={{ __html: post.html }}
-          itemProp="articleBody"
-        />
+        <MDXProvider
+          components={{
+            // Map HTML element tag to React component
+            h1: S.Title,
+          }}
+        >
+          <section
+            dangerouslySetInnerHTML={{ __html: post.html }}
+            itemProp="articleBody"
+          />
+        </MDXProvider>
         <hr />
-        <footer>footer</footer>
       </article>
       <nav>
         <ul
@@ -76,7 +83,7 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
-        date(formatString: "MMMM DD, YYYY")
+        date(formatString: "DD [de] MMMM, YYYY", locale: "pt-br")
         description
       }
     }

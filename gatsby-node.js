@@ -99,6 +99,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       date: Date @dateformat
       featuredImageUrl: String
       featuredImageAlt: String
+      category: String
     }
   `)
 }

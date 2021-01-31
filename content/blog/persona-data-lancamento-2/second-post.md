@@ -4,7 +4,7 @@ date: "2016-12-07"
 title: "Persona Data de Lançamento 2"
 featuredImage: "./persona.jpg"
 featuredImageAlt: "Persona Data de Lançamento 2"
-description: "Persona data de lançamento é anunciado 2"
+description: "reviews"
 ---
 
 # Persona data de lançamento é anunciado 2

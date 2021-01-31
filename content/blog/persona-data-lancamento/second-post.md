@@ -5,6 +5,7 @@ title: "Persona Data de Lançamento"
 featuredImage: "./persona.jpg"
 featuredImageAlt: "Persona Data de Lançamento"
 description: "Persona data de lançamento é anunciado"
+category: "news"
 ---
 
 # Persona data de lançamento é anunciado
