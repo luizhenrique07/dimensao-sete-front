@@ -1,6 +1,12 @@
 module.exports = {
   plugins: [
     {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: `G-T58YS7KQ62`,
+      },
+    },
+    {
       resolve: `gatsby-plugin-styled-components`,
     },
     {
@@ -50,12 +56,7 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: `G-T58YS7KQ62`,
-      },
-    },
+
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
