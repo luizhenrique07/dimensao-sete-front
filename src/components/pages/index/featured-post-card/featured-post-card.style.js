@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import Img from "gatsby-image"
 import { Link } from "gatsby"
-import { colors } from "../../../shared/theme/theme"
+import { colors } from "../../../../shared/theme/theme"
 
 export const Article = styled.article`
   display: flex;

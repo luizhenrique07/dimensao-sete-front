@@ -344,9 +344,4 @@ summary {
 [hidden] {
   display: none;
 }
-
-body {
-  font-family: Roboto, sans-serif;
-}
-
 `

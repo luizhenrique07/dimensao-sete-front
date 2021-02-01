@@ -6,7 +6,7 @@ import Divider from "@material-ui/core/Divider"
 import {
   SectionTitle,
   SectionTitleLargeScreen,
-} from "../section-title/section-title"
+} from "../../section-title/section-title"
 
 const IndexPage = props => {
   const { posts } = props

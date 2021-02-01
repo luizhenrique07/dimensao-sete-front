@@ -2,7 +2,7 @@ import React from "react"
 import Layout from "../components/layout/layout"
 
 import SEO from "../components/seo/seo"
-import IndexPage from "../components/index-page/index-page"
+import IndexPage from "../components/pages/index/index-page"
 
 const Index = ({ data, location }) => {
   const posts = data.allMdx.nodes

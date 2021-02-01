@@ -19,9 +19,9 @@ export default function Header({ location }) {
 
   const sections = [
     { label: "Página Inicial", path: "/" },
-    { label: "Notícias", path: "/noticias" },
-    { label: "Reviews", path: "/reviews" },
-    { label: "Listas", path: "/listas" },
+    { label: "Notícias", path: "/noticias/" },
+    { label: "Reviews", path: "/reviews/" },
+    { label: "Listas", path: "/listas/" },
   ]
 
   function mobileMenuOpen() {
@@ -38,10 +38,16 @@ export default function Header({ location }) {
   }
 
   function getCurrentPath() {
-    let path = sections.find(x => x.path === location.pathname)
+    // let currentPath = location.pathname
+    // if (currentPath.substr(-1) == "/" && currentPath.length > 1) {
+    //   currentPath = currentPath.substr(0, currentPath.length - 1)
+    // }
 
-    if (path) return location.pathname
-    else return false
+    let path = sections.find(x => x.path.includes(location.pathname))
+
+    // console.log(path, currentPath)
+
+    return path
   }
 
   return (
@@ -86,7 +92,7 @@ export default function Header({ location }) {
               <Tabs
                 indicatorColor="secondary"
                 textColor="secondary"
-                value={getCurrentPath()}
+                value={location.pathname}
               >
                 {sections.map(item => (
                   <S.TabItem
