@@ -1,38 +1,10 @@
 import styled from "styled-components"
-import { colors } from "../../shared/theme/theme"
 
 export const Home = styled.div`
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(4, auto);
   margin: 0 auto;
-`
-
-export const FeaturedTitle = styled.h2`
-  display: none;
-  ${props => props.theme.breakpoints.up("sm")} {
-    display: block;
-    font-family: Oswald;
-    font-weight: 800;
-    margin-bottom: 10px;
-    color: ${colors.black};
-    line-height: 1.3;
-    margin-top: 0;
-    text-transform: uppercase;
-    text-decoration: underline;
-    text-decoration-color: ${props => props.theme.palette.secondary.main};
-  }
-`
-
-export const Title = styled.h2`
-  font-family: Oswald;
-  font-weight: 800;
-  margin-bottom: 10px;
-  color: ${colors.black};
-  line-height: 1.3;
-  text-transform: uppercase;
-  text-decoration: underline;
-  text-decoration-color: ${props => props.theme.palette.secondary.main};
 `
 
 export const HomePrimary = styled.section`

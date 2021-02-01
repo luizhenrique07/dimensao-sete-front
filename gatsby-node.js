@@ -22,6 +22,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             id
             frontmatter {
               slug
+              category
             }
           }
         }
@@ -47,6 +48,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     posts.forEach((post, index) => {
       const previousPostId = index === 0 ? null : posts[index - 1].id
       const nextPostId = index === posts.length - 1 ? null : posts[index + 1].id
+      const category = post.frontmatter.category
+
       console.log("--- CReATING PAGE", post.frontmatter)
       console.log(post.frontmatter)
       createPage({
@@ -56,6 +59,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           id: post.id,
           previousPostId,
           nextPostId,
+          category,
         },
       })
     })

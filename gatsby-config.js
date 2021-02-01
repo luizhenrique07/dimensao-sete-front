@@ -6,7 +6,6 @@ module.exports = {
         trackingIds: ["G-T58YS7KQ62"],
       },
       pluginConfig: {
-        // Puts tracking script in the head instead of the body
         head: true,
       },
     },
@@ -24,8 +23,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/content/blog`,
-        name: `blog`,
+        path: `${__dirname}/content/posts`,
+        name: `posts`,
       },
     },
     {

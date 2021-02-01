@@ -1,7 +1,12 @@
 import React from "react"
 import * as S from "./index-page.style"
 import FeaturedPostCard from "./featured-post-card/featured-post-card"
-import PostDescription from "../post-description/post-description"
+import PostDescription from "../../post-description/post-description"
+import Divider from "@material-ui/core/Divider"
+import {
+  SectionTitle,
+  SectionTitleLargeScreen,
+} from "../section-title/section-title"
 
 const IndexPage = props => {
   const { posts } = props
@@ -10,7 +15,7 @@ const IndexPage = props => {
     <S.Home>
       {posts[0] && (
         <S.HomePrimary>
-          <S.FeaturedTitle>Destaques</S.FeaturedTitle>
+          <SectionTitleLargeScreen>Destaques</SectionTitleLargeScreen>
           <FeaturedPostCard
             post={posts[0]}
             key={posts[0].frontmatter.slug}
@@ -32,14 +37,14 @@ const IndexPage = props => {
 
       <S.HomeLatest>
         <S.LatestPosts>
-          <S.Title>Novidades</S.Title>
+          <SectionTitle>Novidades</SectionTitle>
 
           {posts.slice(4).map(post => {
             return (
-              <PostDescription
-                key={post.frontmatter.slug}
-                post={post}
-              ></PostDescription>
+              <div key={post.frontmatter.slug}>
+                <PostDescription post={post}></PostDescription>
+                <Divider />
+              </div>
             )
           })}
         </S.LatestPosts>
