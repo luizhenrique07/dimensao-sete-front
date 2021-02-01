@@ -35,6 +35,7 @@
     "react-helmet": "^5.2.1",
     "styled-components": "^5.2.1",
     "typeface-nunito": "^1.1.13",
+    "typeface-oswald": "^1.1.13",
     "typeface-righteous": "^1.1.13",
     "typeface-roboto": "^1.1.13"
   },

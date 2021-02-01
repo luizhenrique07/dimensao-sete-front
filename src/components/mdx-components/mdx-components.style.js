@@ -2,6 +2,7 @@ import styled from "styled-components"
 
 export const Title = styled.h1`
   font-size: 3em;
+  font-family: Oswald;
 `
 
 export const Image = styled.img`
@@ -11,6 +12,7 @@ export const Image = styled.img`
 
 export const Paragraph = styled.p`
   line-height: 1.6;
-  font-weight: 400;
+  font-weight: 500;
   margin-bottom: 3rem;
+  font-family: Roboto;
 `
