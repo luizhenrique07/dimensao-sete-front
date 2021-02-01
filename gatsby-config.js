@@ -1,9 +1,13 @@
 module.exports = {
   plugins: [
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: `gatsby-plugin-google-gtag`,
       options: {
-        trackingId: `UA-188534736-1`,
+        trackingIds: ["G-T58YS7KQ62"],
+      },
+      pluginConfig: {
+        // Puts tracking script in the head instead of the body
+        head: true,
       },
     },
     {
