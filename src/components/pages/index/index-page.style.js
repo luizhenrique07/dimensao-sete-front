@@ -27,7 +27,7 @@ export const HomeLatest = styled.section`
   grid-template-columns: 1fr;
 
   ${props => props.theme.breakpoints.up("md")} {
-    grid-template-columns: 3fr 1fr;
+    /* grid-template-columns: 3fr 1fr; */
   }
 
   ${props => props.theme.breakpoints.up("sm")} {

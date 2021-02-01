@@ -28,6 +28,7 @@ const theme = createMuiTheme({
 export const colors = {
   black: "#1f1f1f",
   white: "#fff",
+  lightGray: "#858585",
 }
 
 export default theme

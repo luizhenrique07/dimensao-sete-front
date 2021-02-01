@@ -20,7 +20,6 @@ export default function Header({ location }) {
   const sections = [
     { label: "Página Inicial", path: "/" },
     { label: "Notícias", path: "/noticias/" },
-    { label: "Reviews", path: "/reviews/" },
     { label: "Listas", path: "/listas/" },
   ]
 
@@ -38,16 +37,9 @@ export default function Header({ location }) {
   }
 
   function getCurrentPath() {
-    // let currentPath = location.pathname
-    // if (currentPath.substr(-1) == "/" && currentPath.length > 1) {
-    //   currentPath = currentPath.substr(0, currentPath.length - 1)
-    // }
+    let currentPath = sections.find(x => x.path.includes(location.pathname))
 
-    let path = sections.find(x => x.path.includes(location.pathname))
-
-    // console.log(path, currentPath)
-
-    return path
+    return currentPath?.path || false
   }
 
   return (
@@ -90,9 +82,9 @@ export default function Header({ location }) {
                 </List>
               </SwipeableDrawer>
               <Tabs
-                indicatorColor="secondary"
                 textColor="secondary"
-                value={location.pathname}
+                indicatorColor="primary"
+                value={getCurrentPath()}
               >
                 {sections.map(item => (
                   <S.TabItem
