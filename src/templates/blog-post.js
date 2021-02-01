@@ -18,17 +18,12 @@ const BlogPostTemplate = ({ data, location }) => {
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
       />
-      <article itemScope itemType="http://schema.org/Article">
+      <S.Article itemScope itemType="http://schema.org/Article">
         <MDXProvider components={MDXComponents}>
-          <MDXRenderer
-            frontmatter={post.frontmatter}
-            date={post.frontmatter.date}
-          >
-            {post.body}
-          </MDXRenderer>
+          <MDXRenderer frontmatter={post.frontmatter}>{post.body}</MDXRenderer>
         </MDXProvider>
         {/* <hr /> */}
-      </article>
+      </S.Article>
       {/* <nav>
         <ul
           style={{

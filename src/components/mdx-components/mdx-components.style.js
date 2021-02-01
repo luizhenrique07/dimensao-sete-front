@@ -4,7 +4,13 @@ export const Title = styled.h1`
   font-size: 3em;
 `
 
+export const Image = styled.img`
+  cursor: default;
+  width: 100%;
+`
+
 export const Paragraph = styled.p`
-  font-size: 1em;
-  color: #222;
+  line-height: 1.6;
+  font-weight: 400;
+  margin-bottom: 3rem;
 `

@@ -6,6 +6,7 @@ export const Article = styled.article`
   ${props => props.theme.breakpoints.up("sm")} {
     padding: 0;
   }
+  font-family: Nunito;
 `
 
 export const Title = styled
