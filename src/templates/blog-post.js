@@ -1,10 +1,11 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import Layout from "../components/layout/layout"
 import SEO from "../components/seo/seo"
 import * as S from "./blog-post.style"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import { MDXProvider } from "@mdx-js/react"
+import Button from "@material-ui/core/Button"
 import MDXComponents from "../components/mdx-components/mdx-components"
 
 const BlogPostTemplate = ({ data, location }) => {
@@ -24,7 +25,7 @@ const BlogPostTemplate = ({ data, location }) => {
         </MDXProvider>
         {/* <hr /> */}
       </S.Article>
-      {/* <nav>
+      <nav>
         <ul
           style={{
             display: `flex`,
@@ -36,20 +37,28 @@ const BlogPostTemplate = ({ data, location }) => {
         >
           <li>
             {previous && (
-              <Link to={previous.frontmatter.slug} rel="prev">
-                ← {previous.frontmatter.title}
-              </Link>
+              <Button
+                variant="contained"
+                color="secondary"
+                href={previous.frontmatter.slug}
+              >
+                Post Anterior
+              </Button>
             )}
           </li>
           <li>
             {next && (
-              <Link to={next.frontmatter.slug} rel="next">
-                {next.frontmatter.title} →
-              </Link>
+              <Button
+                variant="contained"
+                color="secondary"
+                href={next.frontmatter.slug}
+              >
+                Próximo Post
+              </Button>
             )}
           </li>
         </ul>
-      </nav> */}
+      </nav>
     </Layout>
   )
 }

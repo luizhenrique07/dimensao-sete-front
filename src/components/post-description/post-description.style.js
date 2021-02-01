@@ -32,19 +32,24 @@ export const Image = styled(Img)`
 export const ArticleInfo = styled.div`
   color: black;
   margin-left: 1.5rem;
+  font-weight: 500;
+  font-family: Roboto;
 `
 
 export const ArticleTitle = styled.h3`
   font-weight: 800;
   font-size: 1.8em;
-  ${props => props.theme.breakpoints.up("sm")} {
-    font-size: 2.2em;
-  }
+  font-family: Oswald;
+
   text-transform: capitalize;
   margin: 0;
   color: ${colors.black};
   &:hover {
     text-decoration: underline;
+  }
+
+  ${props => props.theme.breakpoints.up("sm")} {
+    font-size: 2.2em;
   }
 `
 export const ArticleTitleLink = styled(Link)`

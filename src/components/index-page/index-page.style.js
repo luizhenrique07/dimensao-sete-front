@@ -12,7 +12,7 @@ export const FeaturedTitle = styled.h2`
   display: none;
   ${props => props.theme.breakpoints.up("sm")} {
     display: block;
-    font-family: Nunito;
+    font-family: Oswald;
     font-weight: 800;
     margin-bottom: 10px;
     color: ${colors.black};
@@ -25,7 +25,7 @@ export const FeaturedTitle = styled.h2`
 `
 
 export const Title = styled.h2`
-  font-family: Nunito;
+  font-family: Oswald;
   font-weight: 800;
   margin-bottom: 10px;
   color: ${colors.black};

@@ -7,7 +7,7 @@ export const Article = styled.article`
   display: flex;
   flex-direction: column;
   background-color: black;
-  font-family: Nunito;
+  font-family: Oswald;
 `
 
 export const Image = styled(Img)`
