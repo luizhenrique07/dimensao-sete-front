@@ -5,6 +5,11 @@ import MenuIcon from "@material-ui/icons/Menu"
 import AppBar from "@material-ui/core/AppBar"
 import Tab from "@material-ui/core/Tab"
 import Container from "@material-ui/core/Container"
+import List from "@material-ui/core/List"
+
+export const DrawerList = styled(List)`
+  width: 200px;
+`
 
 export const StyledLink = styled(Link)`
   color: ${theme.palette.primary.contrastText};

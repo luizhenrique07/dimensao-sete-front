@@ -67,7 +67,7 @@ export default function Header({ location }) {
                 onOpen={mobileMenuOpen}
               >
                 <AppBar title="Menu" />
-                <List>
+                <S.DrawerList>
                   {sections.map(item => (
                     <ListItem
                       key={item.label}
@@ -79,7 +79,7 @@ export default function Header({ location }) {
                       <ListItemText primary={item.label} />
                     </ListItem>
                   ))}
-                </List>
+                </S.DrawerList>
               </SwipeableDrawer>
               <Tabs
                 textColor="secondary"
