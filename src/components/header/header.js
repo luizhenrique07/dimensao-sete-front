@@ -4,7 +4,6 @@ import Tabs from "@material-ui/core/Tabs"
 import AppBar from "@material-ui/core/AppBar"
 import Container from "@material-ui/core/Container"
 import SwipeableDrawer from "@material-ui/core/SwipeableDrawer"
-import List from "@material-ui/core/List"
 import SiteLogo from "../header-icon/header-icon"
 import * as S from "./header.style"
 

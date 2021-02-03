@@ -11,14 +11,21 @@ export const BlogPost = styled.div``
 export const Title = styled.h2`
   font-family: Oswald;
   font-weight: 800;
-  font-size: 3em;
+
+  font-size: 2.2em;
+  ${props => props.theme.breakpoints.up("sm")} {
+    font-size: 3em;
+  }
 `
 
 export const Subtitle = styled.p`
   font-family: Oswald;
-  font-size: 1.5em;
   margin: 0;
   margin-bottom: 5px;
+  font-size: 1.2em;
+  ${props => props.theme.breakpoints.up("sm")} {
+    font-size: 1.5em;
+  }
 `
 
 export const Time = styled.time`
