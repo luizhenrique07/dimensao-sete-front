@@ -7,11 +7,20 @@ export const Home = styled.div`
   margin: 0 auto;
 `
 
-export const HomePrimary = styled.section`
+export const HomeCard = styled.section`
+  ${props => props.theme.breakpoints.up("sm")} {
+    margin: 0;
+  }
+
+  margin-left: -20px;
+  margin-right: -20px;
+`
+
+export const HomePrimary = styled(HomeCard)`
   grid-row: 1;
   grid-column: 1 / span 12;
 `
-export const HomeSecondary = styled.section`
+export const HomeSecondary = styled(HomeCard)`
   grid-row: 2;
   grid-column: 1 / span 12;
 

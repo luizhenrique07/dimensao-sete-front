@@ -45,22 +45,14 @@ const BlogPostTemplate = ({ data, location }) => {
           >
             <li>
               {previous && (
-                <Button
-                  variant="outlined"
-                  color="dark"
-                  href={previous.frontmatter.slug}
-                >
+                <Button variant="outlined" href={previous.frontmatter.slug}>
                   ← Post Anterior
                 </Button>
               )}
             </li>
             <li>
               {next && (
-                <Button
-                  variant="outlined"
-                  color="dark"
-                  href={next.frontmatter.slug}
-                >
+                <Button variant="outlined" href={next.frontmatter.slug}>
                   Próximo Post →
                 </Button>
               )}

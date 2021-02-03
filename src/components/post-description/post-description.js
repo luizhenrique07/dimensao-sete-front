@@ -26,6 +26,7 @@ const PostDescription = ({ post }) => {
             itemProp="description"
           />
         </section>
+        <S.Time>{post.frontmatter.date}</S.Time>
       </S.ArticleInfo>
     </S.Article>
   )
