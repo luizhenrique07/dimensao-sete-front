@@ -56,6 +56,7 @@ export const ArticleTitleLink = styled(Link)`
   color: ${colors.black};
   text-decoration: none;
 `
+
 export const Time = styled.div`
   color: ${colors.lightGray};
 `

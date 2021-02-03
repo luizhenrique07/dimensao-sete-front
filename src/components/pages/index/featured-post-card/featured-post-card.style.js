@@ -45,6 +45,9 @@ export const ArticleTitleLink = styled(Link)`
   text-decoration: none;
 `
 export const MainCardDescription = styled.section`
+  font-size: 1.4rem;
+  font-weight: 300;
+
   ${props => props.theme.breakpoints.down("sm")} {
     display: none;
   }

@@ -30,9 +30,14 @@ export const WhiteDot = styled(Dot)`
   color: #fff;
 `
 
-export const Icon = styled(Link)`
+export const IconLink = styled(Link)`
   display: flex;
   align-items: center;
   cursor: pointer;
   text-decoration: none;
+`
+
+export const Icon = styled.div`
+  display: flex;
+  align-items: center;
 `
