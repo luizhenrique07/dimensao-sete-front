@@ -1,7 +1,7 @@
 {
   "name": "dimensao-sete-front",
   "private": true,
-  "description": "O portal com conteúdo de outra dimensão",
+  "description": "O portal sobre HQs, mangas, animes e muito mais!",
   "version": "0.1.0",
   "author": "Luiz Henrique Domingues Soares",
   "dependencies": {
