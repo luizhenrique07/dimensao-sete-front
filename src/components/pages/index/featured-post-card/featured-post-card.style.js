@@ -37,9 +37,15 @@ export const ArticleTitle = styled.h3`
   &:hover {
     text-decoration: underline;
   }
+  padding-bottom: 10px;
 `
 
 export const ArticleTitleLink = styled(Link)`
   color: ${colors.white};
   text-decoration: none;
+`
+export const MainCardDescription = styled.section`
+  ${props => props.theme.breakpoints.down("sm")} {
+    display: none;
+  }
 `

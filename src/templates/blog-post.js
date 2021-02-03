@@ -11,12 +11,14 @@ import MDXComponents from "../components/mdx-components/mdx-components"
 import PostDescription from "../components/post-description/post-description"
 import { SectionTitle } from "../components/section-title/section-title"
 
-const BlogPostTemplate = ({ data, location }) => {
+const BlogPostTemplate = ({ data, location, pathContext }) => {
   const post = data.mdx
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const { previous, next } = data
 
-  console.log(data)
+  let featuredImage = post.frontmatter?.featuredImage?.childImageSharp?.fluid
+
+  console.log(pathContext)
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -26,12 +28,17 @@ const BlogPostTemplate = ({ data, location }) => {
           description={post.frontmatter.description || post.excerpt}
         />
         <S.Article itemScope itemType="http://schema.org/Article">
+          <S.Title>{post.frontmatter.title}</S.Title>
+          <S.Subtitle>{post.frontmatter.description}</S.Subtitle>
+          <S.Time dateTime={new Date(pathContext.dateTime + "(pt-br)")}>
+            {post.frontmatter.date}
+          </S.Time>
+          {featuredImage && <S.Image fluid={featuredImage} />}
           <MDXProvider components={MDXComponents}>
             <MDXRenderer frontmatter={post.frontmatter}>
               {post.body}
             </MDXRenderer>
           </MDXProvider>
-          {/* <hr /> */}
         </S.Article>
         <nav>
           <ul
@@ -101,6 +108,13 @@ export const pageQuery = graphql`
         title
         date(formatString: "DD [de] MMMM, YYYY", locale: "pt-br")
         description
+        featuredImage {
+          childImageSharp {
+            fluid(maxHeight: 1024) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
     previous: mdx(id: { eq: $previousPostId }) {

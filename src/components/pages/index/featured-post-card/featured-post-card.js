@@ -1,7 +1,7 @@
 import React from "react"
 import * as S from "./featured-post-card.style"
 
-const FeaturedPostCard = ({ post }) => {
+const FeaturedPostCard = ({ post, mainCard }) => {
   let featuredImage = post.frontmatter?.featuredImage?.childImageSharp?.fluid
   const title = post.frontmatter.title || post.frontmatter.slug
 
@@ -22,14 +22,16 @@ const FeaturedPostCard = ({ post }) => {
             </S.ArticleTitleLink>
           </S.ArticleTitle>
         </header>
-        <section>
-          <p
-            dangerouslySetInnerHTML={{
-              __html: post.frontmatter.description || post.excerpt,
-            }}
-            itemProp="description"
-          />
-        </section>
+        {mainCard && (
+          <S.MainCardDescription>
+            <p
+              dangerouslySetInnerHTML={{
+                __html: post.frontmatter.description || post.excerpt,
+              }}
+              itemProp="description"
+            />
+          </S.MainCardDescription>
+        )}
       </S.ArticleInfo>
     </S.Article>
   )

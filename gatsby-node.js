@@ -23,6 +23,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             frontmatter {
               slug
               category
+              date
             }
           }
         }
@@ -60,6 +61,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           previousPostId,
           nextPostId,
           category,
+          dateTime: post.frontmatter.date,
         },
       })
     })

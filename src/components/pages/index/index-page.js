@@ -19,6 +19,7 @@ const IndexPage = props => {
           <FeaturedPostCard
             post={posts[0]}
             key={posts[0].frontmatter.slug}
+            mainCard={true}
           ></FeaturedPostCard>
         </S.HomePrimary>
       )}
