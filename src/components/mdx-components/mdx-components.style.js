@@ -11,8 +11,9 @@ export const Image = styled.img`
 `
 
 export const Paragraph = styled.p`
-  line-height: 1.4;
+  line-height: 1.6;
   font-weight: 500;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   font-family: Roboto;
+  color: #3c3c3b;
 `
