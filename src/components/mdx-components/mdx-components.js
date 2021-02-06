@@ -3,8 +3,6 @@ import * as S from "./mdx-components.style"
 
 const CustomHeading = props => <S.Title {...props} />
 
-const CustomImage = props => <S.Image {...props} />
-
 const CustomParagraph = props => <S.Paragraph {...props} />
 
 const MDXComponents = {
