@@ -131,6 +131,7 @@ export const pageQuery = graphql`
     }
     suggestions: allMdx(
       filter: { frontmatter: { category: { eq: $category } }, id: { ne: $id } }
+      sort: { fields: [frontmatter___date], order: DESC }
       limit: 5
     ) {
       nodes {
