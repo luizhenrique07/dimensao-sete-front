@@ -10,7 +10,7 @@ import Divider from "@material-ui/core/Divider"
 import MDXComponents from "../components/mdx-components/mdx-components"
 import PostDescription from "../components/post-description/post-description"
 import { SectionTitle } from "../components/section-title/section-title"
-import { Disqus, CommentCount } from "gatsby-plugin-disqus"
+import { Disqus } from "gatsby-plugin-disqus"
 
 const BlogPostTemplate = ({ data, location, pathContext }) => {
   const post = data.mdx
