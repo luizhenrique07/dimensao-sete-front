@@ -10,6 +10,7 @@ import Divider from "@material-ui/core/Divider"
 import MDXComponents from "../components/mdx-components/mdx-components"
 import PostDescription from "../components/post-description/post-description"
 import { SectionTitle } from "../components/section-title/section-title"
+import { Disqus } from "gatsby-plugin-disqus"
 
 const BlogPostTemplate = ({ data, location, pathContext }) => {
   const post = data.mdx
@@ -18,7 +19,11 @@ const BlogPostTemplate = ({ data, location, pathContext }) => {
 
   let featuredImage = post.frontmatter?.featuredImage?.childImageSharp?.fluid
 
-  console.log(pathContext)
+  let disqusConfig = {
+    url: `https://dimensaosete.com.br${location.pathname}`,
+    identifier: post.id,
+    title: post.title,
+  }
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -66,6 +71,8 @@ const BlogPostTemplate = ({ data, location, pathContext }) => {
             </li>
           </ul>
         </nav>
+
+        <Disqus config={disqusConfig} />
         <Divider />
         {data.suggestions && data.suggestions.nodes.length > 0 && (
           <>
