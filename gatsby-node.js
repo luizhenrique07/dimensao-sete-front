@@ -51,8 +51,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       const nextPostId = index === posts.length - 1 ? null : posts[index + 1].id
       const category = post.frontmatter.category
 
-      console.log("--- CReATING PAGE", post.frontmatter)
-      console.log(post.frontmatter)
       createPage({
         path: post.frontmatter.slug,
         component: blogPost,
