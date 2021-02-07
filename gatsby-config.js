@@ -1,6 +1,12 @@
 module.exports = {
   plugins: [
     {
+      resolve: `gatsby-plugin-disqus`,
+      options: {
+        shortname: `dimensaosete`,
+      },
+    },
+    {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
         trackingIds: ["G-T58YS7KQ62"],
