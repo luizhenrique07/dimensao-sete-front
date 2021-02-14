@@ -6,8 +6,7 @@ export const Title = styled.h1`
 `
 
 export const Image = styled.img`
-  cursor: default;
-  width: 100%;
+  max-width: 930px;
 `
 
 export const Paragraph = styled.p`

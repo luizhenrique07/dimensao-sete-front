@@ -2,6 +2,7 @@ import styled from "styled-components"
 import Img from "gatsby-image"
 import { colors } from "../shared/theme/theme"
 
+
 export const Article = styled.article`
   font-size: 20px;
 `

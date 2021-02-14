@@ -1,6 +1,6 @@
 import React from "react"
 import Layout from "../components/layout/layout"
-
+import { graphql } from "gatsby"
 import SEO from "../components/seo/seo"
 import IndexPage from "../components/pages/index/index-page"
 
@@ -9,7 +9,7 @@ const Index = ({ data, location }) => {
 
   return (
     <Layout location={location}>
-      <SEO title="Home" />
+      <SEO title="Home" description="Página Inicial" />
       <IndexPage posts={posts} />
     </Layout>
   )

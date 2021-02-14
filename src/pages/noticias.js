@@ -2,6 +2,7 @@ import React from "react"
 import Layout from "../components/layout/layout"
 import SEO from "../components/seo/seo"
 import NewsPage from "../components/pages/news/news-page"
+import { graphql } from "gatsby"
 
 const News = ({ data, location }) => {
   const posts = data.allMdx.nodes

@@ -1,33 +1,80 @@
-/**
- * SEO component that queries for data with
- *  Gatsby's useStaticQuery React hook
- *
- * See: https://www.gatsbyjs.com/docs/use-static-query/
- */
-
 import React from "react"
 import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
-import { useStaticQuery, graphql } from "gatsby"
 
-const SEO = ({ description, lang, meta, title }) => {
-  title += " | Dimensão Sete"
+function SEO({
+  description,
+  lang,
+  meta,
+  image: metaImage,
+  title,
+  pathname,
+  keywords,
+  time,
+}) {
+  const image = metaImage
+  const canonical = pathname ? `https://dimensaosete.com.br/${pathname}` : null
 
-  const { site } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-          }
-        }
-      }
-    `
-  )
+  const metaTags = [
+    {
+      name: `description`,
+      content: description,
+    },
+    {
+      name: "keywords",
+      content: keywords,
+    },
+    {
+      property: `og:title`,
+      content: title,
+    },
+    {
+      property: `og:site_name`,
+      content: `Dimensão Sete`,
+    },
+    {
+      property: `og:description`,
+      content: description,
+    },
+    {
+      property: `og:type`,
+      content: `article`,
+    },
+    {
+      name: `twitter:title`,
+      content: title,
+    },
+    {
+      name: `twitter:description`,
+      content: description,
+    },
+    {
+      name: `article:published_time`,
+      content: time,
+    },
+  ]
+    .concat(
+      metaImage
+        ? [
+            {
+              property: "og:image",
+              content: image,
+            },
+            {
+              name: "twitter:card",
+              content: "summary_large_image",
+            },
+          ]
+        : [
+            {
+              name: "twitter:card",
+              content: "summary",
+            },
+          ]
+    )
+    .concat(meta)
 
-  const metaDescription = description || site.siteMetadata.description
-  const defaultTitle = site.siteMetadata?.title
+  console.log(metaTags)
 
   return (
     <Helmet
@@ -35,31 +82,24 @@ const SEO = ({ description, lang, meta, title }) => {
         lang,
       }}
       title={title}
-      titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : null}
-      meta={[
-        {
-          name: `description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:title`,
-          content: title,
-        },
-        {
-          property: `og:description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:type`,
-          content: `website`,
-        },
-      ].concat(meta)}
+      titleTemplate={`%s | ${title}`}
+      link={
+        canonical
+          ? [
+              {
+                rel: "canonical",
+                href: canonical,
+              },
+            ]
+          : []
+      }
+      meta={metaTags}
     />
   )
 }
 
 SEO.defaultProps = {
-  lang: `pt-br`,
+  lang: `en`,
   meta: [],
   description: ``,
 }
@@ -69,6 +109,9 @@ SEO.propTypes = {
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string.isRequired,
+  image: PropTypes.shape({
+    src: PropTypes.string.isRequired,
+  }),
+  pathname: PropTypes.string,
 }
-
 export default SEO

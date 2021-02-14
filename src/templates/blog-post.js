@@ -11,16 +11,23 @@ import MDXComponents from "../components/mdx-components/mdx-components"
 import PostDescription from "../components/post-description/post-description"
 import { SectionTitle } from "../components/section-title/section-title"
 import { Disqus } from "gatsby-plugin-disqus"
+import ShareButtons from "../components/share-buttons/share-buttons"
 
 const BlogPostTemplate = ({ data, location, pathContext }) => {
   const post = data.mdx
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const { previous, next } = data
 
-  let featuredImage = post.frontmatter?.featuredImage?.childImageSharp?.fluid
+  let featuredImage = post.frontmatter.featuredImage
+    ? post.frontmatter?.featuredImage?.childImageSharp?.fluid
+    : null
+  const url = `https://dimensaosete.com.br${location.pathname}`
+  const twitterHandle = "dimensao_sete"
+
+  const postDate = new Date(pathContext.dateTime + "(pt-br)")
 
   let disqusConfig = {
-    url: `https://dimensaosete.com.br${location.pathname}`,
+    url,
     identifier: post.id,
     title: post.title,
   }
@@ -31,13 +38,20 @@ const BlogPostTemplate = ({ data, location, pathContext }) => {
         <SEO
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
+          image={featuredImage}
+          pathname={location.pathname}
+          keywords={post.frontmatter.keywords}
+          time={pathContext.dateTime}
         />
         <S.Article itemScope itemType="http://schema.org/Article">
           <S.Title>{post.frontmatter.title}</S.Title>
           <S.Subtitle>{post.frontmatter.description}</S.Subtitle>
-          <S.Time dateTime={new Date(pathContext.dateTime + "(pt-br)")}>
-            {post.frontmatter.date}
-          </S.Time>
+          <S.Time dateTime={postDate}>{post.frontmatter.date}</S.Time>
+          <ShareButtons
+            title={post.frontmatter.title}
+            url={url}
+            twitterHandle={twitterHandle}
+          />
           {featuredImage && <S.Image fluid={featuredImage} />}
           <MDXProvider components={MDXComponents}>
             <MDXRenderer frontmatter={post.frontmatter}>
@@ -115,6 +129,7 @@ export const pageQuery = graphql`
         title
         date(formatString: "DD [de] MMMM, YYYY", locale: "pt-br")
         description
+        keywords
         featuredImage {
           childImageSharp {
             fluid(maxHeight: 1024) {
@@ -149,6 +164,7 @@ export const pageQuery = graphql`
           title
           description
           category
+          keywords
           featuredImage {
             childImageSharp {
               fluid(maxWidth: 1024) {

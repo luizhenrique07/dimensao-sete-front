@@ -2,6 +2,7 @@ import React from "react"
 import Layout from "../components/layout/layout"
 import SEO from "../components/seo/seo"
 import ListsPage from "../components/pages/lists/lists-page"
+import { graphql } from "gatsby"
 
 const Lists = ({ data, location }) => {
   const posts = data.allMdx.nodes

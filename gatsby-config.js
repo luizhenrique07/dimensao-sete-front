@@ -1,4 +1,14 @@
 module.exports = {
+  siteMetadata: {
+    siteName: `Dimensão Sete`,
+    siteUrl: `https://dimensaosete.com.br/`,
+    siteDescription: `Notícias de animes, quadrinhos, cinema e muito mais assuntos da cultura nerd.`,
+    social: {
+      twitter: `https://twitter.com/dimensao_sete`,
+      facebook: `https://www.facebook.com/dimensaosete.com.br`,
+      instagram: `https://www.instagram.com/dimensaosete`,
+    },
+  },
   plugins: [
     {
       resolve: `gatsby-plugin-google-adsense`,
