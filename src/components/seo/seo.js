@@ -58,7 +58,7 @@ function SEO({
         ? [
             {
               property: "og:image",
-              content: image,
+              content: image.src,
             },
             {
               name: "twitter:card",
@@ -114,4 +114,5 @@ SEO.propTypes = {
   }),
   pathname: PropTypes.string,
 }
+
 export default SEO
