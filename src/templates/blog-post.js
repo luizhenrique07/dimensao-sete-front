@@ -13,7 +13,7 @@ import { SectionTitle } from "../components/section-title/section-title"
 import { Disqus } from "gatsby-plugin-disqus"
 import ShareButtons from "../components/share-buttons/share-buttons"
 
-const BlogPostTemplate = ({ data, location, pathContext }) => {
+const BlogPostTemplate = ({ data, location, pageContext }) => {
   const post = data.mdx
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const { previous, next } = data
@@ -24,7 +24,7 @@ const BlogPostTemplate = ({ data, location, pathContext }) => {
   const url = `https://dimensaosete.com.br${location.pathname}`
   const twitterHandle = "dimensao_sete"
 
-  const postDate = new Date(pathContext.dateTime + "(pt-br)")
+  const postDate = new Date(pageContext.dateTime + "(pt-br)")
 
   let disqusConfig = {
     url,
@@ -41,7 +41,7 @@ const BlogPostTemplate = ({ data, location, pathContext }) => {
           image={featuredImage}
           pathname={location.pathname}
           keywords={post.frontmatter.keywords}
-          time={pathContext.dateTime}
+          time={pageContext.dateTime}
         />
         <S.Article itemScope itemType="http://schema.org/Article">
           <S.Title>{post.frontmatter.title}</S.Title>

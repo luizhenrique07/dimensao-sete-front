@@ -16,12 +16,12 @@ function SEO({
 
   const canonical = pathname ? `${siteUrl}/${pathname}` : null
 
-  const imageUrl = `${siteUrl}/${image.src}`
+  const imageUrl = image ? `${siteUrl}/${image.src}` : null
 
   const metaTags = [
     {
       property: `og:url`,
-      content: canonical,
+      content: canonical || siteUrl,
     },
 
     {
@@ -38,16 +38,12 @@ function SEO({
     },
 
     {
-      name: `article:published_time`,
-      content: time,
-    },
-    {
       name: `twitter:title`,
       content: title,
     },
     {
       property: `twitter:url`,
-      content: canonical,
+      content: canonical || siteUrl,
     },
 
     {
@@ -74,6 +70,10 @@ function SEO({
               name: "twitter:card",
               content: "summary_large_image",
             },
+            {
+              name: `article:published_time`,
+              content: time,
+            },
           ]
         : [
             {
@@ -85,7 +85,7 @@ function SEO({
     .concat(meta)
 
   if (description) {
-    metaTags.contact([
+    metaTags.concat([
       {
         name: `twitter:description`,
         content: description,
@@ -104,13 +104,15 @@ function SEO({
       },
     ])
   } else {
-    metaTags.contact([
+    metaTags.concat([
       {
         property: `og:type`,
         content: `website`,
       },
     ])
   }
+
+  console.log(metaTags)
 
   return (
     <Helmet
