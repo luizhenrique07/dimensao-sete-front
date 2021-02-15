@@ -9,7 +9,7 @@ const Index = ({ data, location }) => {
 
   return (
     <Layout location={location}>
-      <SEO title="Home" description="Página Inicial" />
+      <SEO title="Home" />
       <IndexPage posts={posts} />
     </Layout>
   )

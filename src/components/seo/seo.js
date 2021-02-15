@@ -25,7 +25,7 @@ function SEO({
     },
 
     {
-      name: `description`,
+      name: `og:description`,
       content: description,
     },
     {
@@ -62,17 +62,10 @@ function SEO({
               property: "twitter:image",
               content: imageUrl,
             },
-            {
-              property: "twitter:url",
-              content: canonical,
-            },
+
             {
               name: "twitter:card",
               content: "summary_large_image",
-            },
-            {
-              name: `article:published_time`,
-              content: time,
             },
           ]
         : [
@@ -83,34 +76,37 @@ function SEO({
           ]
     )
     .concat(meta)
-
-  if (description) {
-    metaTags.concat([
-      {
-        name: `twitter:description`,
-        content: description,
-      },
-      {
-        property: `og:description`,
-        content: description,
-      },
-      {
-        property: `og:type`,
-        content: `article`,
-      },
-      {
-        name: "article:tag",
-        content: keywords,
-      },
-    ])
-  } else {
-    metaTags.concat([
-      {
-        property: `og:type`,
-        content: `website`,
-      },
-    ])
-  }
+    .concat(
+      description
+        ? [
+            {
+              name: `twitter:description`,
+              content: description,
+            },
+            {
+              property: `og:description`,
+              content: description,
+            },
+            {
+              property: `og:type`,
+              content: `article`,
+            },
+            {
+              name: "article:tag",
+              content: keywords,
+            },
+            {
+              name: `article:published_time`,
+              content: time,
+            },
+          ]
+        : [
+            {
+              property: `og:type`,
+              content: `website`,
+            },
+          ]
+    )
 
   console.log(metaTags)
 
