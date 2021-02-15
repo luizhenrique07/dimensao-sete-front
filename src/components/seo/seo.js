@@ -13,7 +13,10 @@ function SEO({
   time,
 }) {
   const image = metaImage
-  const canonical = pathname ? `https://dimensaosete.com.br/${pathname}` : null
+
+  const siteUrl = `https://dimensaosete.com.br`
+
+  const canonical = pathname ? `${siteUrl}/${pathname}` : null
 
   const metaTags = [
     {
@@ -58,7 +61,7 @@ function SEO({
         ? [
             {
               property: "og:image",
-              content: image.src,
+              content: `${siteUrl}/${image.src}`,
             },
             {
               name: "twitter:card",
