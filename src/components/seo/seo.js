@@ -63,10 +63,6 @@ function SEO({
               property: "og:image",
               content: `${siteUrl}/${image.src}`,
             },
-            {
-              name: "twitter:card",
-              content: "summary_large_image",
-            },
           ]
         : [
             {
