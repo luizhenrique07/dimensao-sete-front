@@ -29,10 +29,6 @@ function SEO({
       content: description,
     },
     {
-      name: "keywords",
-      content: keywords,
-    },
-    {
       property: `og:title`,
       content: title,
     },
@@ -40,14 +36,7 @@ function SEO({
       property: `og:site_name`,
       content: `Dimensão Sete`,
     },
-    {
-      property: `og:description`,
-      content: description,
-    },
-    {
-      property: `og:type`,
-      content: `article`,
-    },
+
     {
       name: `article:published_time`,
       content: time,
@@ -60,17 +49,14 @@ function SEO({
       property: `twitter:url`,
       content: canonical,
     },
-    {
-      name: `twitter:description`,
-      content: description,
-    },
+
     {
       name: `twitter:domain`,
       content: siteUrl,
     },
   ]
     .concat(
-      metaImage
+      image
         ? [
             {
               property: "og:image",
@@ -82,7 +68,7 @@ function SEO({
             },
             {
               property: "twitter:url",
-              content: imageUrl,
+              content: canonical,
             },
             {
               name: "twitter:card",
@@ -98,7 +84,33 @@ function SEO({
     )
     .concat(meta)
 
-  console.log(metaTags)
+  if (description) {
+    metaTags.contact([
+      {
+        name: `twitter:description`,
+        content: description,
+      },
+      {
+        property: `og:description`,
+        content: description,
+      },
+      {
+        property: `og:type`,
+        content: `article`,
+      },
+      {
+        name: "article:tag",
+        content: keywords,
+      },
+    ])
+  } else {
+    metaTags.contact([
+      {
+        property: `og:type`,
+        content: `website`,
+      },
+    ])
+  }
 
   return (
     <Helmet
