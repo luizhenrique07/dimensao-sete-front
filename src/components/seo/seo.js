@@ -6,19 +6,24 @@ function SEO({
   description,
   lang,
   meta,
-  image: metaImage,
+  image,
   title,
   pathname,
   keywords,
   time,
 }) {
-  const image = metaImage
-
   const siteUrl = `https://dimensaosete.com.br`
 
   const canonical = pathname ? `${siteUrl}/${pathname}` : null
 
+  const imageUrl = `${siteUrl}/${image.src}`
+
   const metaTags = [
+    {
+      property: `og:url`,
+      content: canonical,
+    },
+
     {
       name: `description`,
       content: description,
@@ -44,16 +49,24 @@ function SEO({
       content: `article`,
     },
     {
+      name: `article:published_time`,
+      content: time,
+    },
+    {
       name: `twitter:title`,
       content: title,
+    },
+    {
+      property: `twitter:url`,
+      content: canonical,
     },
     {
       name: `twitter:description`,
       content: description,
     },
     {
-      name: `article:published_time`,
-      content: time,
+      name: `twitter:domain`,
+      content: siteUrl,
     },
   ]
     .concat(
@@ -61,7 +74,19 @@ function SEO({
         ? [
             {
               property: "og:image",
-              content: `${siteUrl}/${image.src}`,
+              content: imageUrl,
+            },
+            {
+              property: "twitter:image",
+              content: imageUrl,
+            },
+            {
+              property: "twitter:url",
+              content: imageUrl,
+            },
+            {
+              name: "twitter:card",
+              content: "summary_large_image",
             },
           ]
         : [
