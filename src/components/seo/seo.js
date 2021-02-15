@@ -23,11 +23,6 @@ function SEO({
       property: `og:url`,
       content: canonical || siteUrl,
     },
-
-    {
-      name: `og:description`,
-      content: description,
-    },
     {
       property: `og:title`,
       content: title,
@@ -80,11 +75,15 @@ function SEO({
       description
         ? [
             {
-              name: `twitter:description`,
+              property: `og:description`,
               content: description,
             },
             {
-              property: `og:description`,
+              name: `description`,
+              content: description,
+            },
+            {
+              name: `twitter:description`,
               content: description,
             },
             {
