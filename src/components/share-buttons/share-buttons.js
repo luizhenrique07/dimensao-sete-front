@@ -9,10 +9,11 @@ import {
   RedditShareButton,
   RedditIcon,
 } from "react-share"
+import * as S from "./shared-buttons.style"
 
 const ShareButtons = ({ title, url, twitterHandle, tags }) => {
   return (
-    <div>
+    <S.Buttons>
       <FacebookShareButton url={url}>
         <FacebookIcon size={40} round={true} />
       </FacebookShareButton>
@@ -33,7 +34,7 @@ const ShareButtons = ({ title, url, twitterHandle, tags }) => {
       <WhatsappShareButton url={url} title={title}>
         <WhatsappIcon size={40} round={true} />
       </WhatsappShareButton>
-    </div>
+    </S.Buttons>
   )
 }
 export default ShareButtons

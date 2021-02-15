@@ -46,12 +46,18 @@ const BlogPostTemplate = ({ data, location, pageContext }) => {
         <S.Article itemScope itemType="http://schema.org/Article">
           <S.Title>{post.frontmatter.title}</S.Title>
           <S.Subtitle>{post.frontmatter.description}</S.Subtitle>
-          <S.Time dateTime={postDate}>{post.frontmatter.date}</S.Time>
-          <ShareButtons
-            title={post.frontmatter.title}
-            url={url}
-            twitterHandle={twitterHandle}
-          />
+          <S.ArticleInfo>
+            <S.Time dateTime={postDate}>{post.frontmatter.date}</S.Time>
+
+            <S.ShareButtonsContainer>
+              <ShareButtons
+                title={post.frontmatter.title}
+                url={url}
+                twitterHandle={twitterHandle}
+              />
+            </S.ShareButtonsContainer>
+          </S.ArticleInfo>
+
           {featuredImage && <S.Image fluid={featuredImage} />}
           <MDXProvider components={MDXComponents}>
             <MDXRenderer frontmatter={post.frontmatter}>

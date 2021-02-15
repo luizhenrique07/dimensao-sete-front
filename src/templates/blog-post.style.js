@@ -2,7 +2,6 @@ import styled from "styled-components"
 import Img from "gatsby-image"
 import { colors } from "../shared/theme/theme"
 
-
 export const Article = styled.article`
   font-size: 20px;
 `
@@ -35,5 +34,17 @@ export const Time = styled.time`
 `
 
 export const Image = styled(Img)`
-  margin-top: 30px;
+  margin-top: 10px;
+`
+
+export const ShareButtonsContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`
+
+export const ArticleInfo = styled.div`
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
 `
