@@ -16,7 +16,7 @@ function SEO({
 
   const canonical = pathname ? `${siteUrl}/${pathname}` : null
 
-  const imageUrl = image ? `${siteUrl}/${image.src}` : null
+  const imageUrl = image ? `${siteUrl}${image.src}` : null
 
   const metaTags = [
     {
