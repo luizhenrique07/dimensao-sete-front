@@ -107,8 +107,6 @@ function SEO({
           ]
     )
 
-  console.log(metaTags)
-
   return (
     <Helmet
       htmlAttributes={{
