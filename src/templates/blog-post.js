@@ -138,7 +138,7 @@ export const pageQuery = graphql`
         keywords
         featuredImage {
           childImageSharp {
-            fluid(maxHeight: 1024) {
+            fluid(maxWidth: 1232) {
               ...GatsbyImageSharpFluid
             }
           }
@@ -173,7 +173,7 @@ export const pageQuery = graphql`
           keywords
           featuredImage {
             childImageSharp {
-              fluid(maxWidth: 1024) {
+              fluid(maxWidth: 1232) {
                 ...GatsbyImageSharpFluid
               }
             }

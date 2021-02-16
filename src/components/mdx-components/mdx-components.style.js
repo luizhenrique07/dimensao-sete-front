@@ -4,11 +4,7 @@ export const Title = styled.h1`
   font-size: 3em;
   font-family: Oswald;
 `
-
-export const Image = styled.img`
-  max-width: 930px;
-`
-
+  
 export const Paragraph = styled.p`
   line-height: 1.6;
   font-weight: 500;
