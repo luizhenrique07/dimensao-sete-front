@@ -38,17 +38,25 @@ export const ArticleTitle = styled.h3`
     text-decoration: underline;
   }
   padding-bottom: 10px;
+
+  ${props => props.theme.breakpoints.down("md")} {
+    padding-bottom: 20px;
+  }
 `
 
 export const ArticleTitleLink = styled(Link)`
   color: ${colors.white};
   text-decoration: none;
+
+  ${props => props.theme.breakpoints.down("md")} {
+    font-size: 0.8em;
+  }
 `
 export const MainCardDescription = styled.section`
   font-size: 1.4rem;
   font-weight: 300;
 
-  ${props => props.theme.breakpoints.down("sm")} {
+  ${props => props.theme.breakpoints.down("md")} {
     display: none;
   }
 `

@@ -49,7 +49,6 @@ const IndexPage = props => {
             )
           })}
         </S.LatestPosts>
-        {/* <S.TrendingPosts></S.TrendingPosts> */}
       </S.HomeLatest>
     </S.Home>
   )

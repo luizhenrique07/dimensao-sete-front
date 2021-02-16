@@ -8,7 +8,7 @@ export const Home = styled.div`
 `
 
 export const HomeCard = styled.section`
-  ${props => props.theme.breakpoints.up("sm")} {
+  ${props => props.theme.breakpoints.up("md")} {
     margin: 0;
   }
 
@@ -24,7 +24,7 @@ export const HomeSecondary = styled(HomeCard)`
   grid-row: 2;
   grid-column: 1 / span 12;
 
-  ${props => props.theme.breakpoints.up("sm")} {
+  ${props => props.theme.breakpoints.up("md")} {
     padding-top: 1rem;
   }
 `
@@ -39,7 +39,7 @@ export const HomeLatest = styled.section`
     /* grid-template-columns: 3fr 1fr; */
   }
 
-  ${props => props.theme.breakpoints.up("sm")} {
+  ${props => props.theme.breakpoints.up("md")} {
     padding-top: 1rem;
   }
 `
@@ -53,7 +53,7 @@ export const TrendingPosts = styled.div`
 `
 
 export const HomeSecondaryGrid = styled.div`
-  ${props => props.theme.breakpoints.up("sm")} {
+  ${props => props.theme.breakpoints.up("md")} {
     display: grid;
     grid-template-rows: auto;
     grid-template-columns: repeat(3, 1fr);

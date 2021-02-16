@@ -15,7 +15,7 @@ export const Title = styled.h2`
 
 export const FeaturedTitleLargeScreen = styled(Title)`
   display: none;
-  ${props => props.theme.breakpoints.up("sm")} {
+  ${props => props.theme.breakpoints.up("md")} {
     display: block;
     font-family: Oswald;
     font-weight: 800;
