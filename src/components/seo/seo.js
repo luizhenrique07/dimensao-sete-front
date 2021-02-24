@@ -113,7 +113,7 @@ function SEO({
         lang,
       }}
       title={title}
-      // titleTemplate={`%s | ${title}`}
+      titleTemplate={`Dimensão Sete | %s`}
       link={
         canonical
           ? [
